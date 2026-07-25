@@ -1,0 +1,184 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOdJermKiPw4W4YKTs5G+rr",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Aisosaibi/ThinkPython/blob/v3/module5b_challenge.ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "7601139f"
+      },
+      "source": [
+        "# Problem Solving challenge — Functions: Summation and Palindromes"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "83f073de"
+      },
+      "source": [
+        "## Problem Statement\n",
+        "\n",
+        "This challenge has two parts:\n",
+        "\n",
+        "**Part 1: Sum to N**\n",
+        "Write a function `sum_to_n(n)` that calculates the sum of all integers from 1 to `n` (inclusive). Implement this function in two different ways:\n",
+        "1.  **Iterative Approach:** Use a loop (e.g., a `for` or `while` loop).\n",
+        "2.  **Recursive Approach:** Use recursion (where the function calls itself).\n",
+        "\n",
+        "Confirm that both implementations return the same result for a given `n`.\n",
+        "\n",
+        "**Part 2 (Stretch): Palindrome Checker**\n",
+        "Write a function `is_palindrome(word)` that takes a string `word` as input. The function should return `True` if the word is a palindrome (reads the same forwards and backward, ignoring case and spaces), and `False` otherwise. You can choose to implement this using string indexing, a loop, or recursion."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "b7f63dc0"
+      },
+      "source": [
+        "## Try it Yourself First!\n",
+        "\n",
+        "Before looking at the hints, we strongly encourage you to try to solve the challenge on your own! Experiment with the concepts you know in the 'Test Cell: Functions Solution' below. It's the best way to learn and grow your coding skills.\n",
+        "\n",
+        "Only proceed to the hints if you're feeling stuck or want some guidance on how to approach the problem."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "50b2a89f"
+      },
+      "source": [
+        "## Test Cell: Functions Solution"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "71b5c2b5"
+      },
+      "source": [
+        "# Write your sum_to_n and is_palindrome functions here!"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "8dbab99b"
+      },
+      "source": [
+        "## Hints"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "662aefa9"
+      },
+      "source": [
+        "### How to Use These Hints\n",
+        "\n",
+        "The hints below are designed to be progressive. Each hint builds on the previous one. To reveal a hint, click on its title to expand the section. Try to solve the problem with Hint 1 first, and only move to Hint 2 if you need more help, and so on."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "c0c910b2"
+      },
+      "source": [
+        "<details>\n",
+        "  <summary style=\"color: grey;\">Hint 1 (Part 1: Sum to N - Iterative): Using a Loop</summary>\n",
+        "\n",
+        "  **Goal:** Implement `sum_to_n(n)` using a loop.\n",
+        "\n",
+        "  1.  **Function Definition:** Start with `def sum_to_n_iterative(n):`.\n",
+        "  2.  **Initialize Sum:** Create a variable `total_sum = 0`.\n",
+        "  3.  **Loop:** Use a `for` loop that iterates from `1` up to and including `n`. The `range()` function is useful here (`range(1, n + 1)`).\n",
+        "  4.  **Accumulate:** Inside the loop, add the current number to `total_sum`.\n",
+        "  5.  **Return:** After the loop, `return total_sum`.\n",
+        "</details>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "43f20dce"
+      },
+      "source": [
+        "<details>\n",
+        "  <summary style=\"color: grey;\">Hint 2 (Part 1: Sum to N - Recursive): Base Case and Recursive Step</summary>\n",
+        "\n",
+        "  **Goal:** Implement `sum_to_n(n)` using recursion.\n",
+        "\n",
+        "  1.  **Function Definition:** Start with `def sum_to_n_recursive(n):`.\n",
+        "  2.  **Base Case:** What is the simplest input and its result? If `n` is `0` or `1` (or even negative, though the problem implies positive integers), what should the sum be? For `n=0`, the sum is `0`. This is where recursion stops.\n",
+        "      ```python\n",
+        "      if n <= 0:\n",
+        "          return 0\n",
+        "      ```\n",
+        "  3.  **Recursive Step:** For `n > 0`, the sum of `1` to `n` is `n` plus the sum of `1` to `n-1`. This is where the function calls itself.\n",
+        "      ```python\n",
+        "      else:\n",
+        "          return n + sum_to_n_recursive(n - 1)\n",
+        "      ```\n",
+        "  4.  **Confirming Answers:** After defining both functions, call them with the same input (e.g., `sum_to_n_iterative(5)` and `sum_to_n_recursive(5)`) and print their results to confirm they match.\n",
+        "</details>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "7ed46321"
+      },
+      "source": [
+        "<details>\n",
+        "  <summary style=\"color: grey;\">Hint 3 (Part 2: Palindrome Checker): String Manipulation and Comparison</summary>\n",
+        "\n",
+        "  **Goal:** Implement `is_palindrome(word)` to check for palindromes, ignoring case and spaces.\n",
+        "\n",
+        "  1.  **Function Definition:** Start with `def is_palindrome(word):`.\n",
+        "  2.  **Normalize the String:** Palindromes usually ignore case and non-alphanumeric characters. Before checking:\n",
+        "      *   Convert the entire string to lowercase: `word.lower()`.\n",
+        "      *   Remove spaces and punctuation. A common way is to iterate through the string and build a new one with only letters, or use a list comprehension with `str.isalpha()`.\n",
+        "      Example: `cleaned_word = ''.join(char for char in word.lower() if char.isalpha())`\n",
+        "  3.  **Check for Palindrome (using slicing):** The simplest way in Python is to compare the cleaned string with its reverse. You can reverse a string using slicing: `cleaned_word == cleaned_word[::-1]`.\n",
+        "  4.  **Return Value:** The comparison will directly return `True` or `False`. `return cleaned_word == cleaned_word[::-1]`.\n",
+        "\n",
+        "  *(Alternative: Loop-based check)*\n",
+        "  You could also use a loop, comparing characters from the beginning and end, moving inward.\n",
+        "  *(Alternative: Recursive check)*\n",
+        "  For recursion, the base case would be an empty string or a single-character string (which are palindromes). The recursive step would check the first and last characters and then call itself on the substring in between.\n",
+        "</details>"
+      ]
+    }
+  ]
+}
